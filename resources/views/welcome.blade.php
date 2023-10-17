@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/31186e86db.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+
     {{-- THIS IS THE HEADER OF THE APP --}}
     <nav>
         <div class="nav-left">
@@ -68,7 +68,7 @@
                         </div>
 
                     </div>
-                
+
                 </div>
             @else
                 <div class="sidebar-title">
@@ -78,8 +78,8 @@
                     <a href="/signUp"> Sign Up </a>
                 </div>
             @endif
-            
-            
+
+
         </div>
 
     </nav>

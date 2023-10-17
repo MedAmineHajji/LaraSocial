@@ -4,7 +4,7 @@
 
 @if ($connected)
 <div class="main-content">
-    
+
     <div class="story-gallery">
 
         <div class="story story1">
@@ -74,7 +74,7 @@
                 <div><img src="images/like-blue.png"> 120 </div>
                 <div><img src="images/share.png"> 45 </div>
                 <div><img src="images/comments.png"> 20 </div>
-                
+
             </div>
 
             <div class="post-profile-icon">
@@ -107,7 +107,7 @@
                 <div><img src="images/like.png"> 152 </div>
                 <div><img src="images/share.png"> 23 </div>
                 <div><img src="images/comments.png"> 66 </div>
-                
+
             </div>
 
             <div class="post-profile-icon">
@@ -140,7 +140,7 @@
                 <div><img src="images/like.png"> 12 </div>
                 <div><img src="images/share.png"> 13 </div>
                 <div><img src="images/comments.png"> 22 </div>
-                
+
             </div>
 
             <div class="post-profile-icon">
@@ -173,7 +173,7 @@
                 <div><img src="images/like.png"> 152 </div>
                 <div><img src="images/share.png"> 23 </div>
                 <div><img src="images/comments.png"> 66 </div>
-                
+
             </div>
 
             <div class="post-profile-icon">
@@ -208,7 +208,7 @@
                 <div><img src="images/like.png"> 152 </div>
                 <div><img src="images/share.png"> 23 </div>
                 <div><img src="images/comments.png"> 66 </div>
-                
+
             </div>
 
             <div class="post-profile-icon">
@@ -225,7 +225,7 @@
 
 <div class="right-sidebar">
 
-        
+
         <div class="sidebar-title">
             <h4> Conversation </h4>
             <a href="/messenger"> messenger </a>
@@ -285,10 +285,10 @@
 
             </div>
         </div>
-            
+
 </div>
 @else
-    
+
 @endif
 
 @endsection
