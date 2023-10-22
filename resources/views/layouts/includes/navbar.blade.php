@@ -259,9 +259,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            {{-- <form action=" {{ route('user.update_profile') }} " method="POST">
+            <form action=" {{ route('user.store_reclamation') }} " method="POST">
                 @csrf
-                @method('POST') --}}
+                @method('POST')
                 <div class="modal-body">
 
                     <div class="form-group mt-4">
@@ -272,8 +272,9 @@
 
                     <div class="form-group mt-4">
                         <label for="email">Describe what your Reclamation About</label>
-                        <input id="email" class="form-control"
-                            type="text" name="descriptionReclamation" >
+                        <textarea id="email" class="form-control"
+                            rows="4" cols="50" name="descriptionReclamation" >
+                        </textarea>
                     </div>
 
                 </div>
@@ -281,7 +282,7 @@
                 <div class="modal-footer text-right">
                     <button type="submit" class="btn btn-primary">Send Reclamation</button>
                 </div>
-            {{-- </form> --}}
+            </form>
         </div>
     </div>
 </div>

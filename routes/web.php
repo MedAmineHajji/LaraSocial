@@ -28,7 +28,7 @@ use App\Http\Controllers\Admin\Admission\AdmissionController;
 use App\Http\Controllers\Admin\Download\IDcardController;
 use App\Http\Controllers\Admin\Download\TestimonialController;
 use App\Http\Controllers\Admin\Download\TransCertController;
-
+use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\User\NoticeViewController;
 
 use App\Http\Controllers\User\Posts\PostsController;
@@ -63,6 +63,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     //__User profile routes
     Route::get('profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+
+    //__User send Reclamation
+    Route::post('user/createReclamation', [ReclamationController::class, 'store'])->name('user.store_reclamation');
 
     //__Notice routes
     Route::get('/notice', [NoticeViewController::class, 'index'])->name('notice.view');
