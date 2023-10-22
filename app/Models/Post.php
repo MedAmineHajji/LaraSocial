@@ -13,4 +13,8 @@ class Post extends Model
         'Image',
         'DateHeure',
     ];
+    public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
 }
