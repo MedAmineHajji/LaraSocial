@@ -58,6 +58,9 @@ Route::group(['middleware' => 'auth'], function() {
     //__Change password
     Route::post('/user_password/update', [NewPasswordController::class, 'password_update'])->name('user_password.update');
 
+    //__User updates routes
+    Route::put('profile/update', [UserController::class, 'updateProfile'])->name('user.update_profile');
+
     //__User profile routes
     Route::get('profile/{id}', [UserController::class, 'profile'])->name('user.profile');
 
@@ -73,8 +76,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/videos', [UserController::class, 'videos'])->name('videos');
 
     //__Routine route
-    // Route::get('/routines', [UserController::class, 'routines'])->name('routines');
-    // Route::get('/routines/export/{class}/{dept}', [UserController::class, 'export'])->name('routines.export');
+    Route::get('/routines', [UserController::class, 'routines'])->name('routines');
+    Route::get('/routines/export/{class}/{dept}', [UserController::class, 'export'])->name('routines.export');
 
     //__Teachers and students info route
     Route::get('/teacher_student_info', [UserController::class, 'teacher_student_view'])->name('teacher_student_info');

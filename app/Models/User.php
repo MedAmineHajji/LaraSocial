@@ -22,6 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'user_image',
+        'livesAtUser',
+        'isBanned',
     ];
 
     /**

@@ -33,8 +33,8 @@ $cmnts_cnt = DB::table('post_comments')
                                 <i class="fas fa-check-circle fa-2xs text-primary"></i>
                             @endif
                         </h2>
-                        <p>Email: <a href="mailto:{{ $user->email }}" target="blank"
-                                class="text-info">{{ $user->email }}</a></p>
+                        {{-- <p>Email: <a href="mailto:{{ $user->email }}" target="blank"
+                                class="text-info">{{ $user->email }}</a></p> --}}
                     </div>
                     @if ($user->id != Auth::user()->id)
                         <a href="{{ url('/messenger' . '/' . $user->id) }}"
@@ -49,6 +49,24 @@ $cmnts_cnt = DB::table('post_comments')
 
     <div class="row justify-content-center">
         <div class="col-md-5 col-lg-4 py-4 py-md-0">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">About</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-light">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            full Name : {{ $user->name }}
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Email : {{ $user->email }}
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Lives At : {{ $user->livesAtUser }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">Activities</h5>
