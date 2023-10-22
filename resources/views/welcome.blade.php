@@ -1,98 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Oculus </title>
-    <link rel="stylesheet" href={{asset("assets/style.css")}}>
-    <script src="https://kit.fontawesome.com/31186e86db.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    
-    {{-- THIS IS THE HEADER OF THE APP --}}
-    <nav>
-        <div class="nav-left">
-            <a href="/">
-            <img src="images/logo.png" class="logo">
-             </a>
-        </div>
-        <div class="nav-right">
-            @if ($connected)
-                <div class="search-box">
-                    <img src="images/search.png">
-                    <input type="text" placeholder="Search">
-                </div>
-                <div class="nav-user-icon online" onclick="settingsMenuToggle()">
-                    <img src="images/profile-pic.png">
-                </div>
+@include('layouts.includes.head')
 
-                {{-- THIS IS THE SETTING MENU TOP RIGHT --}}
-                <div class="settings-menu">
-                    <div id="dark-btn">
-                        <span></span>
+<body class="bg-light">
+
+    <main class="">
+
+        <div class="container bg-light col-lg-9">
+
+            <div class="d-md-flex justify-content-between">
+
+                <div class="d-flex align-items-center py-2">
+                    <div class="shadow rounded-8">
+                        <img class="" src="{{ asset('images/logos/logoSociaSync.png') }}" alt="MyADC" style="width: 80px">
                     </div>
-
-                    <div class="settings-menu-inner">
-                        <div class="user-profile">
-                            <img src="images/profile-pic.png">
-                            <div>
-                                <p>Gio Reyna</p>
-                                <a href="/me"> See your profile </a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="user-profile">
-                            <img src="images/feedback.png">
-                            <div>
-                                <p>Give feedback</p>
-                                <a href="#"> Help us improve the website </a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="settings-links">
-                            <img src="images/setting.png" class="settings-icon">
-                            <a href="#"> Setings & Privacy <img src="images/arrow.png"></a>
-                        </div>
-                        <div class="settings-links">
-                            <img src="images/help.png" class="settings-icon">
-                            <a href="#"> Help & Support <img src="images/arrow.png"></a>
-                        </div>
-                        <div class="settings-links">
-                            <img src="images/display.png" class="settings-icon">
-                            <a href="#"> Display & Accessibility <img src="images/arrow.png"></a>
-                        </div>
-                        <div class="settings-links">
-                            <img src="images/logout.png" class="settings-icon">
-                            <a href="#"> Logout <img src="images/arrow.png"></a>
-                        </div>
-
+                    <div class="ms-4">
+                        <h1 class="text-primary mt-3 fw-bold mb-0">SociaSync</h1>
+                        <p> social media platform</p>
                     </div>
-                
                 </div>
-            @else
-                <div class="sidebar-title">
-                    <a href="/signIn"> Sign In </a>
+
+                <div class="d-flex align-items-center justify-content-end mb-3">
+                    <a class="btn btn-secondary" href="{{ route('admission.procedure') }}"><i
+                            class="fas fa-user-edit"></i> Admission</a>
+                    @auth
+                        <a class="btn btn-primary ms-2" href="{{ route('home') }}"><i class="fas fa-home"></i>
+                            Home</a>
+                    @else
+                        <a class="btn btn-primary ms-2" href="{{ route('register') }}"><i class="fas fa-user-plus"></i>
+                            Register</a>
+                    @endauth
                 </div>
-                <div class="sidebar-title">
-                    <a href="/signUp"> Sign Up </a>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6 p-5">
+                    <img class="img-fluid mb-3" src="{{ asset('images/asset_img/welcome_art.png') }}" alt="">
+
+                    <div class="d-flex justify-content-center mt-5">
+                        <a href="#" class="mx-2 shadow">
+                            <img src="{{ asset('images/asset_img/app-store-badge-google-play.png') }}" alt=""
+                                style="height: 50px">
+                        </a>
+                        <a href="#" class="mx-2 shadow">
+                            <img src="{{ asset('images/asset_img/Download-On-The-App-Store-PNG-Image.png') }}"
+                                alt="" style="height: 50px">
+                        </a>
+                    </div>
                 </div>
-            @endif
-            
-            
+                <div class="col-md-6">
+                    <div class="card px-4 py-3 rounded-8 shadow-lg">
+                        <div class="card-header">
+                            <h2>Login</h2>
+                            <p>Welcome to SociaSync </p>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+
+                                <div class="mb-4">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control py-2 @error('email') is-invalid @enderror"
+                                        id="email" name="email" aria-describedby="emailHelp">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password"
+                                        class="form-control py-2  @error('password') is-invalid @enderror"
+                                        id="password" name="password">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-4 form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember_me" name="remember">
+                                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                </div>
+
+                                <div class="d-flex justify-content-between pt-3">
+
+                                    <button type="button" class="btn btn-link px-0 forgetPassBtn"
+                                        onclick="location.href='{{ route('password.request') }}'" @auth disabled
+                                        @endauth>Forgot your password?</button>
+
+                                    <button type="submit" class="btn btn-primary " @auth disabled @endauth>
+                                        <div class="d-flex">Login <i class="fas fa-sign-in-alt mt-1 ms-1"></i></div>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-    </nav>
-
-    {{-- THIS IS THE BODY OF THE APP --}}
-
-    <div class="container">
-
-        @yield('content')
-
-    </div>
+    </main>
 
 
-    <script src={{asset("assets/script.js")}}></script>
+    <footer class="py-3 mt-5">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <img src="{{ asset('images/logos/BD_govt.png') }}" alt="" style="height: 45px">
+                <img class="ms-4" src="{{ asset('images/logos/a2i-logo.png') }}" alt="" style="height: 45px">
+                <img class="ms-4" src="{{ asset('images/logos/sheb_logo.png') }}" alt=""
+                    style="height: 45px">
+                <img class="ms-4" src="{{ asset('images/logos/UNICEF_login_icon.svg') }}" alt=""
+                    style="height: 45px">
+            </div>
+            <div class="d-md-flex justify-content-center small mt-3">
+                <div class="text-muted">&copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>. Developed and supported by <a href="https://github.com/mr-mamun-50"
+                        target="blank">SociaSync team </a>
+                </div>
+                <div class="ms-1">
+                    &middot;
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    @include('layouts.includes.scripts')
 </body>
+
 </html>
