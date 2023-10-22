@@ -15,7 +15,7 @@ $submenu = ''; ?>
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-friends"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Current Students</span>
+                        <span class="info-box-text">Current Notices</span>
                         <span class="info-box-number">
                             {{ $students->count() }}
                         </span>
@@ -25,7 +25,7 @@ $submenu = ''; ?>
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
+            {{-- <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-chalkboard-teacher"></i></span>
 
@@ -36,7 +36,7 @@ $submenu = ''; ?>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-            </div>
+            </div> --}}
             <!-- /.col -->
 
             <!-- fix for small devices only -->

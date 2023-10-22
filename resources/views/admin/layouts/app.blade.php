@@ -59,8 +59,7 @@
             <strong>Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear())
-                </script> <a href="https://github.com/mr-mamun-50" target="blank">Mamunur Rashid
-                    Mamun</a>.
+                </script> 
             </strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">

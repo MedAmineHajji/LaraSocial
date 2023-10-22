@@ -73,8 +73,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/videos', [UserController::class, 'videos'])->name('videos');
 
     //__Routine route
-    Route::get('/routines', [UserController::class, 'routines'])->name('routines');
-    Route::get('/routines/export/{class}/{dept}', [UserController::class, 'export'])->name('routines.export');
+    // Route::get('/routines', [UserController::class, 'routines'])->name('routines');
+    // Route::get('/routines/export/{class}/{dept}', [UserController::class, 'export'])->name('routines.export');
 
     //__Teachers and students info route
     Route::get('/teacher_student_info', [UserController::class, 'teacher_student_view'])->name('teacher_student_info');
