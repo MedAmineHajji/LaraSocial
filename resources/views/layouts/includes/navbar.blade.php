@@ -1,3 +1,7 @@
+@php
+$menu = Auth::user()->id
+@endphp
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-0">
 
     <div class="container-fluid justify-content-between row-lg">
@@ -131,6 +135,14 @@
                             <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fas fa-key me-1"></i>
                                 Send Reclamation
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-1 px-0">
+                            <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
+                                data-bs-toggle="modal"><i class="fas fa-key me-1"></i>
+                                <a href={{ "/reclamations/view/"}}>View My Reclamatios</a>
                             </button>
                         </a>
                     </li>

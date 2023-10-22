@@ -67,6 +67,9 @@ Route::group(['middleware' => 'auth'], function() {
     //__User send Reclamation
     Route::post('user/createReclamation', [ReclamationController::class, 'store'])->name('user.store_reclamation');
 
+    //__Show list of Reclamations
+    Route::get("/reclamations/view", [ReclamationController::class, 'show'])->name('user.view_reclamations');
+
     //__Notice routes
     Route::get('/notice', [NoticeViewController::class, 'index'])->name('notice.view');
 

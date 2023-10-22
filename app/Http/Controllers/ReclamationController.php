@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reclamation;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -21,5 +23,12 @@ class ReclamationController extends Controller
         DB::table('reclamations')->insert($data);
         $notify = ['message'=>'Reclamation successfully sent to the Admin!', 'alert-type'=>'success'];
         return redirect()->back()->with($notify);
+    }
+
+    public function show(){
+        $reclamations = Reclamation::where('user_id', auth()->id())->get();
+        $user = User::find(auth()->id());
+
+        return view('user.reclamations', compact('reclamations', 'user'));
     }
 }
