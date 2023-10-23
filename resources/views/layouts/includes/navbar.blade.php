@@ -42,18 +42,18 @@ $menu = Auth::user()->id
                 </a>
             </li>
 
-            <li class="nav-item me-4" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Class routine">
+            <li class="nav-item me-4" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Market Place">
                 <a class="nav-link  @if ($menu == 'Product') active @endif" href="{{ route('front_product') }}">
                     <span><i class="nav-icon fas fa-calendar-alt fa-lg"></i></span>
                 </a>
             </li>
 
-            <li class="nav-item me-4" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Teachers & Students">
+            {{-- <li class="nav-item me-4" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Teachers & Students">
                 <a class="nav-link  @if ($menu == 't_s_info') active @endif"
                     href="{{ route('teacher_student_info') }}">
                     <span><i class="fas fa-users fa-lg"></i></span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <!-- Center elements -->
 
