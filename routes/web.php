@@ -192,9 +192,11 @@ Route::resource('categories', CategoryController::class);
 
    });
 
-Route::resource("/blog", BlogController::class);
+Route::resource("/blog", BlogController::class)->names([
+    'index' => 'blog.view',
+]);
 
-Route::get('/article', [ArticleController::class, 'index']);
+Route::get('/article', [ArticleController::class, 'index'])->name('show_articles');
   
 Route::post('/save', [ArticleController::class, 'save']);
 

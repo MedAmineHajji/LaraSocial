@@ -3,6 +3,19 @@
     <a href="{{ route('notice.view') }}" class="list-group-item list-group-item-action px-3 border-0">
         <i class="bi bi-megaphone-fill fa-lg text-primary me-3"></i> Official notices</a>
 
+
+
+        <a href="{{ route('blog.view') }}" class="list-group-item list-group-item-action px-3 border-0">
+        <i class="fas fa-chalkboard-teacher fa-lg text-success me-3"></i> Blogs</a>
+
+
+
+
+        <a href="{{ route('show_articles') }}" class="list-group-item list-group-item-action px-3 border-0">
+        <i class="bi bi-megaphone-fill fa-lg text-primary me-3"></i> Articles</a>
+
+        
+
     <a href="{{ route('front_product') }}" class="list-group-item list-group-item-action px-3 border-0">
         <i class="fas fa-chalkboard-teacher fa-lg text-success me-3"></i> Market Place </a>
 
