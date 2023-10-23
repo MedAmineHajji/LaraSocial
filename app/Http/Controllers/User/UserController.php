@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
@@ -65,6 +66,24 @@ class UserController extends Controller
         return view('user.profile', compact('user', 'posts', 'xi_marks_mt', 'xi_marks_hy', 'xi_marks_fnl', 'xii_marks_mt', 'xii_marks_hy', 'xii_marks_fnl'));
     }
 
+    //__User update info of Profile
+    public function updateProfile(Request $req){
+
+        $validatedData = $req->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'livesAtUser' => 'nullable|string', // Optional if you want to update the location
+        ]);
+
+        Auth::user()->name = $req->name;
+        Auth::user()->email = $req->input('email');
+        Auth::user()->livesAtUser = $req->input('livesAtUser');
+        Auth::user()->save();
+        
+        $notify = ['message'=>'Infos changed successfully !', 'alert-type'=>'success'];
+        return redirect()->route('home')->with($notify);
+        
+    }
 
     //__View videos
     public function videos()

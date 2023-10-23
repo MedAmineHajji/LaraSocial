@@ -22,6 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'user_image',
+        'livesAtUser',
+        'isBanned',
     ];
 
     /**
@@ -42,4 +44,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function Reclamations() {
+        return $this->hasMany(Reclamation::class);
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\HomeController;
@@ -34,6 +36,7 @@ use App\Http\Controllers\User\NoticeViewController;
 use App\Http\Controllers\User\Posts\PostsController;
 use App\Http\Controllers\User\Posts\LikesController;
 use App\Http\Controllers\User\Posts\CommentsController;
+use App\Http\Controllers\ReclamationController;
 
 
 /*
@@ -58,8 +61,17 @@ Route::group(['middleware' => 'auth'], function() {
     //__Change password
     Route::post('/user_password/update', [NewPasswordController::class, 'password_update'])->name('user_password.update');
 
+    //__User updates routes
+    Route::put('profile/update', [UserController::class, 'updateProfile'])->name('user.update_profile');
+
     //__User profile routes
     Route::get('profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+
+    //__User send Reclamation
+    Route::post('user/createReclamation', [ReclamationController::class, 'store'])->name('user.store_reclamation');
+
+    //__Show list of Reclamations
+    Route::get("/reclamations/view", [ReclamationController::class, 'show'])->name('user.view_reclamations');
 
     //__Notice routes
     Route::get('/notice', [NoticeViewController::class, 'index'])->name('notice.view');
@@ -73,15 +85,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/videos', [UserController::class, 'videos'])->name('videos');
 
     //__Routine route
-    // Route::get('/routines', [UserController::class, 'routines'])->name('routines');
-    // Route::get('/routines/export/{class}/{dept}', [UserController::class, 'export'])->name('routines.export');
+    Route::get('/routines', [UserController::class, 'routines'])->name('routines');
+    Route::get('/routines/export/{class}/{dept}', [UserController::class, 'export'])->name('routines.export');
 
     //__Teachers and students info route
     Route::get('/teacher_student_info', [UserController::class, 'teacher_student_view'])->name('teacher_student_info');
 
+    return view('front_office/layout');
 });
 
 
+Route::get('/Admin', function () {
+    return view('back_office/pages/dashboard');
+});
 // __Admission routes
 Route::get('/admission/procedure', function () {
     return view('admission.admission_procedure');
@@ -118,6 +134,9 @@ Route::group([], function() {
     Route::resource('/admin/routines_xi', RoutineXIController::class);
     Route::resource('/admin/routines_xii', RoutineXIIController::class);
 
+Route::resource('events', EventController::class);
+
+Route::resource('categories', CategoryController::class);
     // __Student routes
     Route::resource('/admin/students', AllStudentsController::class);
     Route::resource('/admin/students_xi', XIStudentsController::class);

@@ -47,12 +47,12 @@
                 <li class="nav-item">
                     <a href="{{ route('index_product') }}"
                         class="nav-link @if ($menu == 'Products') active @endif">
-                        <i class="far fa-dot-circle nav-icon"></i>
+                        <i class="nav-icon fas fa-bullhorn"></i>
                         <p> Products </p>
                     </a>
                 </li>
 
-                {{-- <li class="nav-item @if ($menu == 'Routine') menu-open @endif">
+                <li class="nav-item @if ($menu == 'Routine') menu-open @endif">
                     <a href="#" class="nav-link @if ($menu == 'Routine') active @endif">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p> Routines <i class="fas fa-angle-left right"></i> </p>
@@ -155,13 +155,13 @@
                                 <p>All teachers</p>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('students_xi.index') }}"
                                 class="nav-link @if ($submenu == 'Students_xi') active @endif">
                                 <i class="far fa-dot-circle nav-icon"></i>
                                 <p>Administrators</p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.teachers-science') }}"
                                 class="nav-link @if ($submenu == 'Science') active @endif">
@@ -207,7 +207,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
 
                 <li class="nav-header">others</li>
 

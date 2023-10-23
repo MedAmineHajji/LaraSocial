@@ -54,7 +54,7 @@ class NoticeController extends Controller
             'description' => $request->description,
             'visibility' => $request->visibility,
             'description' => $request->description,
-            'post_date' => now().date('')
+            'post_date' => now('6.0').date('')
         ];
 
         DB::table('notices')->insert($data);

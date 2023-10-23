@@ -50,15 +50,17 @@ class RegisteredUserController extends Controller
         // $destinationPath = public_path('images/users');
         // $imgFile = Image::make($image);
         // $imgFile->resize(300, 300)->save($destinationPath.'/'.$input['user_image']);
-
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'livesAtUser' => '',
+            'isBanned' => false
 //            'user_image' => $input['user_image'],
         ]);
 
-        event(new Registered($user));
+        
 
         Auth::login($user);
 

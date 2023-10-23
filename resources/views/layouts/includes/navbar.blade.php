@@ -1,3 +1,7 @@
+@php
+$menu = Auth::user()->id
+@endphp
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-0">
 
     <div class="container-fluid justify-content-between row-lg">
@@ -44,12 +48,12 @@
                 </a>
             </li>
 
-            {{-- <li class="nav-item me-4" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Teachers & Students">
+            <li class="nav-item me-4" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Teachers & Students">
                 <a class="nav-link  @if ($menu == 't_s_info') active @endif"
                     href="{{ route('teacher_student_info') }}">
                     <span><i class="fas fa-users fa-lg"></i></span>
                 </a>
-            </li> --}}
+            </li>
         </ul>
         <!-- Center elements -->
 
@@ -111,8 +115,34 @@
                         <a class="dropdown-item py-1 px-0">
 
                             <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="fas fa-key me-1"></i>
+                                Change info
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-1 px-0">
+
+                            <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-key me-1"></i>
                                 Change password
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-1 px-0">
+
+                            <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fas fa-key me-1"></i>
+                                Send Reclamation
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-1 px-0">
+                            <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
+                                data-bs-toggle="modal"><i class="fas fa-key me-1"></i>
+                                <a href={{ "/reclamations/view/"}}>View My Reclamatios</a>
                             </button>
                         </a>
                     </li>
@@ -184,6 +214,85 @@
 
                 <div class="modal-footer text-right">
                     <button type="submit" class="btn btn-primary">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{{-- Change Info Modal --}}
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Infos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form action=" {{ route('user.update_profile') }} " method="POST">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+
+                    <div class="form-group mt-4">
+                        <label for="name">New FullName</label>
+                        <input id="name" class="form-control "
+                            type="text" name="name" value="{{ Auth::user()->name }}">
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="email">New Email</label>
+                        <input id="email" class="form-control @error('email') is-invalid @enderror"
+                            type="email" name="email" value="{{ Auth::user()->email }}">
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="email">New Lives At</label>
+                        <input id="email" class="form-control
+                            type="email" name="livesAtUser" value="{{ Auth::user()->livesAtUser }}">
+                    </div>
+                </div>
+
+                <div class="modal-footer text-right">
+                    <button type="submit" class="btn btn-primary">Change Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- Send a Reclamation Modal --}}
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Reclamation To Admin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form action=" {{ route('user.store_reclamation') }} " method="POST">
+                @csrf
+                @method('POST')
+                <div class="modal-body">
+
+                    <div class="form-group mt-4">
+                        <label for="name">Subject</label>
+                        <input id="name" class="form-control "
+                            type="text" name="titleReclamation">
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="email">Describe what your Reclamation About</label>
+                        <textarea id="email" class="form-control"
+                            rows="4" cols="50" name="descriptionReclamation" >
+                        </textarea>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer text-right">
+                    <button type="submit" class="btn btn-primary">Send Reclamation</button>
                 </div>
             </form>
         </div>
