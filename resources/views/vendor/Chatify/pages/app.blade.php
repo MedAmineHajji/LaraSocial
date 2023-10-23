@@ -7,7 +7,7 @@
             <nav>
                 <div style="display:inline-flex">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/logos/icon.png') }}" alt="MyADC"
+                        <img src="{{ asset('images/logos/logoSociaSync.png') }}" alt="SociaSync"
                             style="width: 35px; height:35px; box-shadow:0 0 10px #ccc; border-radius: 10px">
                     </a>
                     <span class="messenger-headTitle" style="margin: 7px 10px; color: #606679">MESSAGES</span>
@@ -22,19 +22,19 @@
             {{-- Search input --}}
             <input type="text" class="messenger-search" placeholder="Search" />
             {{-- Tabs --}}
-            <div class="messenger-listView-tabs">
+             <div class="messenger-listView-tabs">
                 <a href="#" @if ($type == 'user') class="active-tab" @endif data-view="users">
                     <span class="far fa-user"></span> People</a>
                 <a href="#" @if ($type == 'group') class="active-tab" @endif data-view="groups">
                     <span class="fas fa-users"></span> Groups</a>
-            </div>
+            </div> 
         </div>
         {{-- tabs and lists --}}
         <div class="m-body contacts-container">
             {{-- Lists [Users/Group] --}}
             {{-- ---------------- [ User Tab ] ---------------- --}}
-            <div class="@if ($type == 'user') show @endif messenger-tab users-tab app-scroll"
-                data-view="users">
+             <div class="@if ($type == 'user') show @endif messenger-tab users-tab app-scroll"
+                data-view="users"> 
 
                 {{-- Favorites --}}
                 <div class="favorites-section" style="margin-top: 10px">
@@ -51,13 +51,13 @@
             </div>
 
             {{-- ---------------- [ Group Tab ] ---------------- --}}
-            <div class="@if ($type == 'group') show @endif messenger-tab groups-tab app-scroll"
+             <div class="@if ($type == 'group') show @endif messenger-tab groups-tab app-scroll"
                 data-view="groups">
                 {{-- items --}}
                 <p style="text-align: center;color:grey;margin-top:40px">
                     This feature is not available right now.
                 </p>
-            </div>
+            </div> 
 
             {{-- ---------------- [ Search Tab ] ---------------- --}}
             <div class="messenger-tab search-tab app-scroll" data-view="search">

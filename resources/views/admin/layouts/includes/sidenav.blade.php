@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('notice.index') }}"
+                    <a href="{{ route('index_product') }}"
                         class="nav-link @if ($menu == 'Products') active @endif">
                         <i class="far fa-dot-circle nav-icon"></i>
                         <p> Products </p>

@@ -182,12 +182,12 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        \Chatify\ChatifyServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
          */
-        
+        \Chatify\ChatifyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -214,6 +214,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'ProductFacade' => \domain\Facades\ProductFacade::class,
         'Chatify' => Chatify\Facades\ChatifyMessenger::class,
     ])->toArray(),
 

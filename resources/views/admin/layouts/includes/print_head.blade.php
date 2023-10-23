@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Admin | MyADC</title>
+    <title>Admin | SociaSync</title>
     <link rel="shortcut icon" type="image" href="{{ asset('images/logos/icon_dark.png') }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
