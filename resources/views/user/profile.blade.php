@@ -45,6 +45,11 @@ $cmnts_cnt = DB::table('post_comments')
                             class="btn btn-light position-absolute bottom-0 end-0 me-2 mb-2"><i
                                 class="bi bi-chat-right-text me-1"></i>
                             Message</a>
+                    @else
+                        <a href="{{ url('/events/create') }}"
+                            class="btn btn-light position-absolute bottom-0 end-0 me-2 mb-2"><i
+                                class="bi bi-chat-right-text me-1"></i>
+                            Add Event</a>
                     @endif
                 </div>
             </div>

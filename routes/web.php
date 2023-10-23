@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\HomeController;
@@ -28,12 +30,12 @@ use App\Http\Controllers\Admin\Admission\AdmissionController;
 use App\Http\Controllers\Admin\Download\IDcardController;
 use App\Http\Controllers\Admin\Download\TestimonialController;
 use App\Http\Controllers\Admin\Download\TransCertController;
-use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\User\NoticeViewController;
 
 use App\Http\Controllers\User\Posts\PostsController;
 use App\Http\Controllers\User\Posts\LikesController;
 use App\Http\Controllers\User\Posts\CommentsController;
+use App\Http\Controllers\ReclamationController;
 
 
 /*
@@ -88,9 +90,13 @@ Route::group(['middleware' => 'auth'], function() {
     //__Teachers and students info route
     Route::get('/teacher_student_info', [UserController::class, 'teacher_student_view'])->name('teacher_student_info');
 
+    return view('front_office/layout');
 });
 
 
+Route::get('/Admin', function () {
+    return view('back_office/pages/dashboard');
+});
 // __Admission routes
 Route::get('/admission/procedure', function () {
     return view('admission.admission_procedure');
@@ -127,6 +133,9 @@ Route::group([], function() {
     Route::resource('/admin/routines_xi', RoutineXIController::class);
     Route::resource('/admin/routines_xii', RoutineXIIController::class);
 
+Route::resource('events', EventController::class);
+
+Route::resource('categories', CategoryController::class);
     // __Student routes
     Route::resource('/admin/students', AllStudentsController::class);
     Route::resource('/admin/students_xi', XIStudentsController::class);
