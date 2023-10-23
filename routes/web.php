@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ArticleController;
+
 
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\RoutineXIController;
@@ -191,4 +193,8 @@ Route::resource('categories', CategoryController::class);
    });
 
 Route::resource("/blog", BlogController::class);
+
+Route::get('/article', [ArticleController::class, 'index']);
+  
+Route::post('/save', [ArticleController::class, 'save']);
 
