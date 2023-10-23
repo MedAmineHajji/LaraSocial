@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\BlogController;
 
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\RoutineXIController;
@@ -175,6 +176,7 @@ Route::resource('categories', CategoryController::class);
     Route::get('/admin/download/tc', [TransCertController::class, 'index'])->name('admin.download.tc');
     Route::post('/admin/download/tc/generate', [TransCertController::class, 'generate'])->name('admin.download.tc.generate');
 
+
     // product routes
     Route::get('/product', [ProductController::class, 'index_product'])->name('index_product');
     Route::get('/product/front', [ProductController::class, 'front_product'])->name('front_product');
@@ -187,3 +189,6 @@ Route::resource('categories', CategoryController::class);
 
 
    });
+
+Route::resource("/blog", BlogController::class);
+
