@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\BlogController;
 
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\RoutineXIController;
@@ -175,3 +176,4 @@ Route::resource('categories', CategoryController::class);
     Route::post('/admin/download/tc/generate', [TransCertController::class, 'generate'])->name('admin.download.tc.generate');
 
 });
+Route::resource("/blog", BlogController::class);

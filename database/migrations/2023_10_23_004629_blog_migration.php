@@ -1,9 +1,9 @@
 <?php
-
+ 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+ 
 return new class extends Migration
 {
     /**
@@ -13,17 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-     Schema::create('events', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->datetime('start_date')->nullable();
-            $table->datetime('end_date')->nullable();
+            $table->string("titre");
+            $table->string("description");
+            $table->string("contenu");
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('students');
     }
 };
