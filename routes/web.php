@@ -30,12 +30,12 @@ use App\Http\Controllers\Admin\Admission\AdmissionController;
 use App\Http\Controllers\Admin\Download\IDcardController;
 use App\Http\Controllers\Admin\Download\TestimonialController;
 use App\Http\Controllers\Admin\Download\TransCertController;
-
 use App\Http\Controllers\User\NoticeViewController;
 
 use App\Http\Controllers\User\Posts\PostsController;
 use App\Http\Controllers\User\Posts\LikesController;
 use App\Http\Controllers\User\Posts\CommentsController;
+use App\Http\Controllers\ReclamationController;
 
 
 /*
@@ -65,6 +65,12 @@ Route::group(['middleware' => 'auth'], function() {
 
     //__User profile routes
     Route::get('profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+
+    //__User send Reclamation
+    Route::post('user/createReclamation', [ReclamationController::class, 'store'])->name('user.store_reclamation');
+
+    //__Show list of Reclamations
+    Route::get("/reclamations/view", [ReclamationController::class, 'show'])->name('user.view_reclamations');
 
     //__Notice routes
     Route::get('/notice', [NoticeViewController::class, 'index'])->name('notice.view');

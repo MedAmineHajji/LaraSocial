@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-     Schema::create('events', function (Blueprint $table) {
+        Schema::create('reclamations', function(Blueprint $table){
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->datetime('start_date')->nullable();
-            $table->datetime('end_date')->nullable();
-            $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->string('titleReclamation');
+            $table->string('descriptionReclamation');
+            $table->string('status');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reclamations');
     }
 };

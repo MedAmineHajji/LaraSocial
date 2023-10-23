@@ -14,6 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Category::create([
+            "name" => "category 1",
+            "description" => "ceci est une description du seeder"
+        ]);
+
+        \App\Models\Category::create([
+            "name" => "category 2",
+            "description" => "ceci est une description du seeder"
+        ]);
+
+        \App\Models\Category::create([
+            "name" => "category 3",
+            "description" => "ceci est une description du seeder"
+        ]);
     }
 }

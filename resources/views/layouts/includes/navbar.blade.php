@@ -1,3 +1,7 @@
+@php
+$menu = Auth::user()->id
+@endphp
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-0">
 
     <div class="container-fluid justify-content-between row-lg">
@@ -136,6 +140,14 @@
                     </li>
                     <li>
                         <a class="dropdown-item py-1 px-0">
+                            <button type="button" class="btn bg-transparent shadow-0 px-3 py-2"
+                                data-bs-toggle="modal"><i class="fas fa-key me-1"></i>
+                                <a href={{ "/reclamations/view/"}}>View My Reclamatios</a>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item py-1 px-0">
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" name="logoutform">
                                 @csrf
@@ -259,9 +271,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            {{-- <form action=" {{ route('user.update_profile') }} " method="POST">
+            <form action=" {{ route('user.store_reclamation') }} " method="POST">
                 @csrf
-                @method('POST') --}}
+                @method('POST')
                 <div class="modal-body">
 
                     <div class="form-group mt-4">
@@ -272,8 +284,9 @@
 
                     <div class="form-group mt-4">
                         <label for="email">Describe what your Reclamation About</label>
-                        <input id="email" class="form-control"
-                            type="text" name="descriptionReclamation" >
+                        <textarea id="email" class="form-control"
+                            rows="4" cols="50" name="descriptionReclamation" >
+                        </textarea>
                     </div>
 
                 </div>
@@ -281,7 +294,7 @@
                 <div class="modal-footer text-right">
                     <button type="submit" class="btn btn-primary">Send Reclamation</button>
                 </div>
-            {{-- </form> --}}
+            </form>
         </div>
     </div>
 </div>

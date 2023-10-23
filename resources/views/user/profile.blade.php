@@ -29,9 +29,13 @@ $cmnts_cnt = DB::table('post_comments')
                             alt="" class="rounded-circle w-100">
                     </div>
                     <div class="ms-5 w-75">
-                        <h2 class="card-title">{{ $user->name }} @if ($user->department)
-                                <i class="fas fa-check-circle fa-2xs text-primary"></i>
-                            @endif
+                        <h2 class="card-title">
+                            <div style="color: black">
+                                {{ $user->name }} @if ($user->department)
+                                    <i class="fas fa-check-circle fa-2xs text-primary"></i>
+                                @endif
+                            </div>
+                            
                         </h2>
                         {{-- <p>Email: <a href="mailto:{{ $user->email }}" target="blank"
                                 class="text-info">{{ $user->email }}</a></p> --}}
@@ -41,6 +45,11 @@ $cmnts_cnt = DB::table('post_comments')
                             class="btn btn-light position-absolute bottom-0 end-0 me-2 mb-2"><i
                                 class="bi bi-chat-right-text me-1"></i>
                             Message</a>
+                    @else
+                        <a href="{{ url('/events/create') }}"
+                            class="btn btn-light position-absolute bottom-0 end-0 me-2 mb-2"><i
+                                class="bi bi-chat-right-text me-1"></i>
+                            Add Event</a>
                     @endif
                 </div>
             </div>
