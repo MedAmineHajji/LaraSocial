@@ -34,7 +34,8 @@ use App\Http\Controllers\User\NoticeViewController;
 use App\Http\Controllers\User\Posts\PostsController;
 use App\Http\Controllers\User\Posts\LikesController;
 use App\Http\Controllers\User\Posts\CommentsController;
-
+use App\Http\Controllers\Formation\FormationController;
+use App\Http\Controllers\Formation\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,28 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 
+
+
+// Formation Routes
+Route::get('/formations', [FormationController::class, 'index'])->name('formations.index');
+Route::get('/formations/create', [FormationController::class, 'create'])->name('formations.create');
+Route::post('/formations', [FormationController::class, 'store'])->name('formations.store');
+Route::get('/formations/{formation}', [FormationController::class, 'show'])->name('formations.show');
+Route::get('/formations/{formation}/edit', [FormationController::class, 'edit'])->name('formations.edit');
+Route::put('/formations/{formation}', [FormationController::class, 'update'])->name('formations.update');
+Route::delete('/formations/{formation}', [FormationController::class, 'destroy'])->name('formations.destroy');
+
+// Order Routes
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('/orders/{order}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
+Route::delete('/orders/{formationId}/{userId}', [OrderController::class,'destroy'])->name('orders.destroy');
+Route::get('/formations/{formationId}/ordered-users', [OrderController::class, 'getUsersWhoOrderedFormation'])
+    ->name('formations.ordered-users');
+
 // __Admission routes
 Route::get('/admission/procedure', function () {
     return view('admission.admission_procedure');
@@ -92,6 +115,7 @@ Route::get('/admission/procedure', function () {
 
 Route::post('/student/admission/store', [AdmissionController::class, 'store'])->name('student.admission.store');
 Route::post('/student/admission/verify', [AdmissionController::class, 'verify'])->name('student.admission.verify');
+Route::put('/orders/{order}/toggle-status', [OrderController::class, 'toggleStatus'])->name('orders.toggle-status');
 
 
 require __DIR__.'/auth.php';
