@@ -46,19 +46,19 @@ $menu = 'formation_info';
                     aria-labelledby="list-teacher-list">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Formations information</h5>
+                            <h5>Training information</h5>
                         </div>
                         <div class="card-body table-responsive">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
-                                Ajouter formation
+                                Add Training
                             </button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Ajouter une formation</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Add training</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -94,8 +94,7 @@ $menu = 'formation_info';
                                             </div>
 
                                             <div class="modal-footer text-right">
-                                                <button type="submit" class="btn btn-primary">Ajouter une
-                                                    formation</button>
+                                                <button type="submit" class="btn btn-primary">Add training</button>
                                             </div>
                                         </form>
 
@@ -146,11 +145,11 @@ $menu = 'formation_info';
                                     <td class="d-flex justify-content-center">
                                         @if ($formation->user_id === Auth::user()->id)
                                         <!-- Display a button for the formation creator to view applicants -->
-                                        <a href="#list-student" class="btn btn-primary h-25"
+                                        <a href="#list-student" class="btn btn-transparent h-25"
                                             id="viewApplicantsBtn" data-formation-id="{{ $formation->id }}">
                                             <i class="fas fa-eye"></i></a>
 
-                                            <button type="button" class="btn btn-success h-25" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-transparent h-25" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal2">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
@@ -159,7 +158,7 @@ $menu = 'formation_info';
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modifier formation</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit training</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -197,8 +196,7 @@ $menu = 'formation_info';
                                             </div>
 
                                             <div class="modal-footer text-right">
-                                                <button type="submit" class="btn btn-primary">modifier une
-                                                    formation</button>
+                                                <button type="submit" class="btn btn-primary">Edit training</button>
                                             </div>
                                         </form>
 
@@ -209,7 +207,7 @@ $menu = 'formation_info';
     @csrf
     @method('DELETE')
     <input type="hidden" name="formation_id" value="{{ $formation->id }}">
-    <button type="submit" class="btn btn-danger px-4    ">   <i class="fas fa-trash"></i></button>
+    <button type="submit" class="btn btn-transparent px-4    ">   <i class="fas fa-trash"></i></button>
 </form>
                                            
                                         @else
@@ -220,8 +218,8 @@ $menu = 'formation_info';
                                             <input type="hidden" name="formation_id" value="{{ $formation->id }}">
                                             <input type="hidden" name="order_date" value="{{ now() }}">
                                             <input type="hidden" name="status" value="pending">
-                                            <button type="submit" class="btn btn-success px-1 py-0 mx-1 shadow-0">Order
-                                                Formation</button>
+                                            <button type="submit" class="btn btn-success px-3 py-1 mx-1 shadow-1">Order
+                                                training</button>
                                         </form>
 
                                         @else
@@ -230,7 +228,7 @@ $menu = 'formation_info';
                                             action="{{ route('orders.destroy', ['formationId' => $formation->id, 'userId' => Auth::user()->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger px-1 py-0 mx-1 shadow-0">Cancel
+                                            <button type="submit" class="btn btn-danger px-3 py-1 mx-1 shadow-1">Cancel
                                                 Order</button>
                                         </form>
 

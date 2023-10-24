@@ -14,6 +14,10 @@
 
     <a href="{{ route('teacher_student_info') }}" class="list-group-item list-group-item-action px-3 border-0">
         <i class="fas fa-user-friends fa-lg text-warning me-3"></i> Student information</a>
+
+        <a href="{{ route('formations.index') }}" class="list-group-item list-group-item-action px-3 border-0">
+        <i class="fas fa-chalkboard fa-lg text-primary me-3"></i>Training information</a>
+
 </div>
 
 <div class="card text-start">
